@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>単位でいつも立ち止まる自分へ ― MKS・SI接頭辞 完全整理</title>
+
+<!-- Google tag (gtag.js) : GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7ES0HBQTBQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7ES0HBQTBQ');
+</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xoroqy5uh4");
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1F5;
+    --paper-2:#E4E9F0;
+    --white:#FFFFFF;
+    --ink:#16233D;
+    --ink-soft:#4A5772;
+    --ink-faint:#8592A8;
+    --brass:#AD7A2E;
+    --brass-light:#F2E4CB;
+    --teal:#1F6F78;
+    --teal-light:#DCEEEF;
+    --line:#C7D0DC;
+    --red:#B3452F;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px 120px;}
+  ::selection{background:var(--brass-light);}
+
+  /* ---------- header / hero ---------- */
+  header.hero{
+    background:
+      linear-gradient(180deg, var(--ink) 0%, #1c2c4d 100%);
+    color:var(--paper);
+    padding:64px 24px 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 32px);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:920px;margin:0 auto;position:relative;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px; letter-spacing:.14em;
+    color:var(--brass-light);
+    text-transform:uppercase;
+    margin:0 0 14px;
+  }
+  h1.title{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:600;
+    font-size:clamp(28px, 4.4vw, 42px);
+    line-height:1.3;
+    margin:0 0 14px;
+  }
+  .subtitle{
+    color:#C4CEE0;
+    font-size:15.5px;
+    max-width:600px;
+    margin:0 0 40px;
+  }
+
+  /* ruler */
+  .ruler-wrap{margin-top:8px;}
+  .ruler-caption{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:#8FA0C2;
+    margin-top:10px;
+    letter-spacing:.02em;
+  }
+  svg text{font-family:'IBM Plex Mono',monospace;}
+  .tick-label{fill:#C4CEE0; font-size:11px;}
+  .tick-exp{fill:#7C8CAE; font-size:9.5px;}
+  .tick-line{stroke:#4C5C82; stroke-width:1;}
+  .tick-line.major{stroke:#7B8CB4; stroke-width:1.4;}
+  .base-marker{fill:var(--brass-light);}
+  .zoom-box{fill:none; stroke:var(--brass-light); stroke-width:1; stroke-dasharray:3 3;}
+  .zoom-link{stroke:var(--brass-light); stroke-width:1; stroke-dasharray:2 2; opacity:.6;}
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:8px;}
+  .sec-no{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--brass);
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.05em;
+  }
+  h2{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:600;
+    font-size:24px;
+    margin:0;
+    color:var(--ink);
+  }
+  .lead{color:var(--ink-soft); font-size:15px; max-width:640px; margin:14px 0 28px;}
+  h3{
+    font-family:'IBM Plex Serif', serif;
+    font-size:17px;
+    font-weight:600;
+    margin:32px 0 12px;
+  }
+  p{margin:0 0 14px; font-size:15px; color:var(--ink-soft);}
+  strong{color:var(--ink); font-weight:700;}
+
+  /* callout */
+  .callout{
+    background:var(--white);
+    border-left:3px solid var(--brass);
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:16px 20px;
+    margin:20px 0;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .callout.trap{border-left-color:var(--red);}
+  .callout-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px; letter-spacing:.08em;
+    color:var(--brass);
+    text-transform:uppercase;
+    display:block; margin-bottom:6px; font-weight:600;
+  }
+  .callout.trap .callout-label{color:var(--red);}
+
+  /* tables */
+  table{width:100%; border-collapse:collapse; margin:18px 0 8px; font-size:14px; background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:0 1px 0 var(--line);}
+  thead th{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:500;
+    font-size:11.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    text-align:left;
+    padding:10px 14px;
+  }
+  tbody td{padding:9px 14px; border-bottom:1px solid var(--line); color:var(--ink-soft);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:var(--paper);}
+  td.sym, th.sym{font-family:'IBM Plex Mono',monospace; color:var(--ink); font-weight:600;}
+  td.exp{font-family:'IBM Plex Mono',monospace; color:var(--brass); font-weight:600; white-space:nowrap;}
+  tr.core td{background:var(--teal-light);}
+  tr.rare td{color:var(--ink-faint);}
+  .tag{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px;
+    padding:2px 6px; border-radius:4px; background:var(--brass-light); color:#7A5416;
+    margin-left:6px; letter-spacing:.03em;
+  }
+
+  /* nested squares diagram */
+  .area-diagram{display:flex; justify-content:center; margin:24px 0;}
+  .area-diagram svg{max-width:100%; height:auto;}
+
+  /* converter widgets */
+  .tool{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:22px 24px;
+    margin:24px 0;
+    box-shadow:0 1px 0 var(--line);
+  }
+  .tool-title{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--teal); font-weight:600; margin-bottom:16px;
+  }
+  .tool-row{display:flex; flex-wrap:wrap; gap:12px; align-items:center;}
+  .tool-row label{font-size:13px; color:var(--ink-soft); display:flex; flex-direction:column; gap:5px; flex:1; min-width:120px;}
+  select, input[type=number]{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    padding:9px 10px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  .arrow{font-size:18px; color:var(--ink-faint); padding-top:18px;}
+  .result{
+    margin-top:18px;
+    padding:14px 16px;
+    background:var(--teal-light);
+    border-radius:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .result .eq{color:var(--teal); margin:0 8px;}
+
+  /* practice problems */
+  .problem{
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:18px 22px;
+    margin:14px 0;
+    box-shadow:0 1px 0 var(--line);
+  }
+  .problem-num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--brass); font-weight:700; font-size:13px;
+  }
+  .problem-q{margin:8px 0 0; color:var(--ink); font-size:14.5px;}
+  details{margin-top:10px;}
+  summary{
+    cursor:pointer; font-family:'IBM Plex Mono',monospace; font-size:12.5px;
+    color:var(--teal); letter-spacing:.03em; list-style:none; user-select:none;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:"▸ ";}
+  details[open] summary::before{content:"▾ ";}
+  .answer{
+    margin-top:10px; padding:12px 14px; background:var(--paper); border-radius:6px;
+    font-size:14px; color:var(--ink-soft);
+  }
+  .answer .num{font-family:'IBM Plex Mono',monospace; color:var(--red); font-weight:700;}
+
+  footer{
+    text-align:center; padding:36px 24px 12px;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+    color:var(--ink-faint);
+  }
+
+  @media (max-width:600px){
+    .tool-row{flex-direction:column; align-items:stretch;}
+    .arrow{padding-top:0; text-align:center;}
+    table{font-size:12.5px;}
+    thead th, tbody td{padding:7px 9px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Unit Systems &amp; SI Prefixes ― 極みを目指す受験生のための学習リファレンス</p>
+    <h1 class="title">単位でいつも<br>立ち止まる自分へ。</h1>
+    <p class="subtitle">あなたも、実はほとんどのライバルがわかっていない、単位系と接頭辞の関係。この武器をインストールし、圧倒的な自信に変えて、受験という名の頭脳開発ゲームをクリアしよう。</p>
+    <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:var(--brass-light); background:rgba(255,255,255,0.06); display:inline-block; padding:6px 14px; border-radius:20px; border:1px solid rgba(242,228,203,0.3); margin:0 0 32px;">筆者：偏差値+15 ／ 某国公立大学 獣医学部</p>
+
+    <div class="ruler-wrap">
+      <svg viewBox="0 0 872 190" width="100%" id="rulerSvg"></svg>
+      <p class="ruler-caption">▲ 10³ ごとに並ぶ「主要な接頭辞」。中央の点線枠が、混乱しやすい h・da・d・c のゾーン ―― 下の②で拡大します。</p>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 01 -->
+  <section id="mks">
+    <div class="sec-head"><span class="sec-no">01</span><h2>MKS ―― すべての土台になる3つ（＋4つ）</h2></div>
+    <p class="lead">「MKS単位系」は<strong>メートル(m)・キログラム(kg)・秒(s)</strong>を基本にとる体系です。1901年にイタリアの技術者ジョルジによって提案され、電流・温度・物質量・光度の4つが加わって、1960年に現在の<strong>国際単位系（SI）</strong>として完成しました。つまりSIは「MKSの拡張版」と考えると整理しやすくなります。</p>
+
+    <table>
+      <thead><tr><th>量</th><th class="sym">記号</th><th class="sym">単位</th><th>由来・要点</th></tr></thead>
+      <tbody>
+        <tr class="core"><td>長さ</td><td class="sym">m</td><td class="sym">メートル</td><td>M・K・Sの「M」。現在は光速から定義</td></tr>
+        <tr class="core"><td>質量</td><td class="sym">kg</td><td class="sym">キログラム</td><td>M・K・Sの「K」。唯一、接頭辞kが付いた状態が基本単位</td></tr>
+        <tr class="core"><td>時間</td><td class="sym">s</td><td class="sym">秒</td><td>M・K・Sの「S」</td></tr>
+        <tr><td>電流</td><td class="sym">A</td><td class="sym">アンペア</td><td>1960年に追加（→MKSA）</td></tr>
+        <tr><td>熱力学温度</td><td class="sym">K</td><td class="sym">ケルビン</td><td>絶対零度を0とする</td></tr>
+        <tr><td>物質量</td><td class="sym">mol</td><td class="sym">モル</td><td>アボガドロ数（6.02×10²³個）の集団</td></tr>
+        <tr><td>光度</td><td class="sym">cd</td><td class="sym">カンデラ</td><td>人の目の感度を基準とした明るさ</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <span class="callout-label">大学入試メモ</span>
+      2019年、SIの基本単位はすべて「不変の物理定数」から定義し直されました（例：kgはプランク定数から定義）。物理の資料集や新課程の教科書ではこの点に触れることがあるので、「昔は分銅で決めていたが、今は物理定数で決まっている」という一文だけ覚えておくと安心です。
+    </div>
+
+    <h3>組立単位 ―― 力・仕事・圧力は基本単位の「掛け算」</h3>
+    <p>ニュートン(N)やジュール(J)のような単位は、上の基本単位を組み合わせた「組立単位」です。これを分解できると、公式を丸暗記しなくても式の形から単位が検算できます。</p>
+    <table>
+      <thead><tr><th>量</th><th class="sym">単位</th><th>基本単位への分解</th><th>意味</th></tr></thead>
+      <tbody>
+        <tr><td>速度</td><td class="sym">m/s</td><td class="sym">m·s⁻¹</td><td>単位時間に進む距離</td></tr>
+        <tr><td>加速度</td><td class="sym">m/s²</td><td class="sym">m·s⁻²</td><td>単位時間の速度変化</td></tr>
+        <tr><td>力</td><td class="sym">N</td><td class="sym">kg·m·s⁻²</td><td>質量×加速度（F=ma）</td></tr>
+        <tr><td>仕事・エネルギー</td><td class="sym">J</td><td class="sym">kg·m²·s⁻²（= N·m）</td><td>力×距離</td></tr>
+        <tr><td>圧力</td><td class="sym">Pa</td><td class="sym">kg·m⁻¹·s⁻²（= N/m²）</td><td>単位面積あたりの力</td></tr>
+        <tr><td>仕事率</td><td class="sym">W</td><td class="sym">kg·m²·s⁻³（= J/s）</td><td>単位時間あたりの仕事</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 02 -->
+  <section id="prefixes">
+    <div class="sec-head"><span class="sec-no">02</span><h2>接頭辞の全体像 ―― なぜ h・da・d・c だけ「はぐれ者」なのか</h2></div>
+    <p class="lead">SI接頭辞は本来、<strong>10³倍（1000倍）ごと</strong>にk→M→G→T…、または10⁻³ごとにm→μ→n→p…と美しく並びます。ところが、<strong>h（ヘクト,10²）・da（デカ,10¹）・d（デシ,10⁻¹）・c（センチ,10⁻²）</strong>の4つだけが、その並びから外れた「10刻み」の目盛りとして今も生き残っています。混乱の正体はここです。</p>
+
+    <div class="area-diagram">
+      <svg viewBox="0 0 760 150" width="100%" style="max-width:640px">
+        <!-- zoom ruler for k..m segment -->
+        <text x="380" y="18" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="11" fill="#8592A8">k と m の間だけ、10倍刻みの目盛りが4本ある</text>
+        <line x1="40" y1="70" x2="720" y2="70" stroke="#C7D0DC" stroke-width="2"/>
+        <!-- ticks: k h da (base) d c m -->
+        <g font-family="'IBM Plex Mono'" font-size="12" text-anchor="middle">
+          <circle cx="60" cy="70" r="4" fill="#16233D"/><text x="60" y="55" fill="#16233D" font-weight="600">k</text><text x="60" y="95" fill="#AD7A2E">10³</text>
+          <circle cx="215" cy="70" r="4" fill="#B3452F"/><text x="215" y="55" fill="#B3452F" font-weight="700">h</text><text x="215" y="95" fill="#B3452F">10²</text>
+          <circle cx="370" cy="70" r="4" fill="#B3452F"/><text x="370" y="55" fill="#B3452F" font-weight="700">da</text><text x="370" y="95" fill="#B3452F">10¹</text>
+          <circle cx="490" cy="70" r="5" fill="#1F6F78"/><text x="490" y="55" fill="#1F6F78" font-weight="700">基本単位</text><text x="490" y="95" fill="#1F6F78">10⁰</text>
+          <circle cx="560" cy="70" r="4" fill="#B3452F"/><text x="560" y="55" fill="#B3452F" font-weight="700">d</text><text x="560" y="95" fill="#B3452F">10⁻¹</text>
+          <circle cx="640" cy="70" r="4" fill="#B3452F"/><text x="640" y="55" fill="#B3452F" font-weight="700">c</text><text x="640" y="95" fill="#B3452F">10⁻²</text>
+          <circle cx="705" cy="70" r="4" fill="#16233D"/><text x="705" y="55" fill="#16233D" font-weight="600">m</text><text x="705" y="95" fill="#AD7A2E">10⁻³</text>
+        </g>
+        <text x="380" y="135" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="11" fill="#8592A8">h・da・d・c（赤）＝面積・体積・気圧など、特定の用途だけに残った目盛り</text>
+      </svg>
+    </div>
+
+    <p>今も現役なのは、<strong>a（アール）・ha（ヘクタール）</strong>のような面積、<strong>dL（デシリットル）</strong>のような食品表示、<strong>hPa（ヘクトパスカル）</strong>のような気象、日常のミリ(mm,mL)・センチ(cm)くらいのもの。理系の計算では「基本は1000倍ごと」というルールに戻ると覚えやすくなります。</p>
+
+    <h3>接頭辞 一覧表（大学入試の範囲は太字・網掛け）</h3>
+    <table>
+      <thead><tr><th class="sym">記号</th><th>読み</th><th class="exp">倍数</th><th>よく使う例</th></tr></thead>
+      <tbody>
+        <tr class="rare"><td class="sym">Q</td><td>クエタ</td><td class="exp">10²⁴×1000</td><td>（2022年追加・天文学の最先端）</td></tr>
+        <tr class="rare"><td class="sym">R</td><td>ロナ</td><td class="exp">10²⁷÷1000</td><td>（同上）</td></tr>
+        <tr class="core"><td class="sym">Y</td><td>ヨタ</td><td class="exp">10²⁴</td><td>地球全体のデータ量（ヨタバイト）</td></tr>
+        <tr class="core"><td class="sym">Z</td><td>ゼタ</td><td class="exp">10²¹</td><td>世界のデータ通信量</td></tr>
+        <tr class="core"><td class="sym">E</td><td>エクサ</td><td class="exp">10¹⁸</td><td>スーパーコンピュータの演算性能</td></tr>
+        <tr class="core"><td class="sym">P</td><td>ペタ</td><td class="exp">10¹⁵</td><td>大規模ストレージ</td></tr>
+        <tr class="core"><td class="sym">T</td><td>テラ</td><td class="exp">10¹²</td><td>HDD容量（TB）</td></tr>
+        <tr class="core"><td class="sym">G</td><td>ギガ</td><td class="exp">10⁹</td><td>スマホ通信量（GB）</td></tr>
+        <tr class="core"><td class="sym">M</td><td>メガ</td><td class="exp">10⁶</td><td>周波数（MHz）</td></tr>
+        <tr class="core"><td class="sym">k</td><td>キロ</td><td class="exp">10³</td><td>km、kg</td></tr>
+        <tr><td class="sym">h</td><td>ヘクト <span class="tag">例外</span></td><td class="exp">10²</td><td>hPa（気圧）</td></tr>
+        <tr><td class="sym">da</td><td>デカ <span class="tag">例外</span></td><td class="exp">10¹</td><td>ほぼ使われない</td></tr>
+        <tr><td class="sym">―</td><td><strong>基本単位</strong></td><td class="exp">10⁰</td><td>m, g, L, s…</td></tr>
+        <tr><td class="sym">d</td><td>デシ <span class="tag">例外</span></td><td class="exp">10⁻¹</td><td>dL（食品の内容量）</td></tr>
+        <tr><td class="sym">c</td><td>センチ <span class="tag">例外</span></td><td class="exp">10⁻²</td><td>cm</td></tr>
+        <tr class="core"><td class="sym">m</td><td>ミリ</td><td class="exp">10⁻³</td><td>mm, mL, mg</td></tr>
+        <tr class="core"><td class="sym">μ</td><td>マイクロ</td><td class="exp">10⁻⁶</td><td>μm（細胞・波長）</td></tr>
+        <tr class="core"><td class="sym">n</td><td>ナノ</td><td class="exp">10⁻⁹</td><td>nm（可視光の波長）</td></tr>
+        <tr class="core"><td class="sym">p</td><td>ピコ</td><td class="exp">10⁻¹²</td><td>pF（コンデンサの容量）</td></tr>
+        <tr class="core"><td class="sym">f</td><td>フェムト</td><td class="exp">10⁻¹⁵</td><td>原子核の大きさ（fm）</td></tr>
+        <tr class="core"><td class="sym">a</td><td>アト</td><td class="exp">10⁻¹⁸</td><td>（先端物理）</td></tr>
+        <tr class="rare"><td class="sym">z</td><td>ゼプト</td><td class="exp">10⁻²¹</td><td>（先端物理）</td></tr>
+        <tr class="rare"><td class="sym">y</td><td>ヨクト</td><td class="exp">10⁻²⁴</td><td>陽子1個の質量オーダー</td></tr>
+        <tr class="rare"><td class="sym">r</td><td>ロント</td><td class="exp">10⁻²⁷</td><td>（2022年追加）</td></tr>
+        <tr class="rare"><td class="sym">q</td><td>クエクト</td><td class="exp">10⁻³⁰</td><td>（2022年追加）</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <span class="callout-label">覚え方</span>
+      k・h・da・（基本）・d・c・m の並びは、日本の教科書では<strong>「キロ・ヘクト・デカ／メートル・デシ・センチ・ミリ」</strong>と1本のフレーズで覚えるのが定番です。声に出すと、hとdaが基本単位に近い側、dとcも基本単位に近い側にあることが体に入ります。
+    </div>
+
+    <div class="tool">
+      <div class="tool-title">変換ツール ―― 接頭辞 → 接頭辞</div>
+      <div class="tool-row">
+        <label>数値
+          <input type="number" id="pfxValue" value="1" step="any">
+        </label>
+        <label>変換前の接頭辞
+          <select id="pfxFrom"></select>
+        </label>
+        <span class="arrow">→</span>
+        <label>変換後の接頭辞
+          <select id="pfxTo"></select>
+        </label>
+      </div>
+      <div class="result" id="pfxResult"></div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section id="area">
+    <div class="sec-head"><span class="sec-no">03</span><h2>面積の単位 ―― 今日スキャンした資料のテーマ</h2></div>
+    <p class="lead">面積は「長さ×長さ」なので、接頭辞が1段階変わるだけで<strong>桁数は2乗で変化</strong>します。これが子どもも大人も引っかかる最大のポイントです。</p>
+
+    <div class="area-diagram">
+      <svg viewBox="0 0 700 260" width="100%" style="max-width:520px">
+        <rect x="40" y="40" width="620" height="200" fill="none" stroke="#1F6F78" stroke-width="2"/>
+        <text x="350" y="30" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="12" fill="#1F6F78" font-weight="600">1 km² = 100 ha = 10,000 a = 1,000,000 m²</text>
+        <text x="350" y="255" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#8592A8">正方形は面積比のイメージ（縮尺は誇張しています）</text>
+
+        <rect x="60" y="60" width="180" height="160" fill="none" stroke="#AD7A2E" stroke-width="1.6"/>
+        <text x="150" y="140" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="13" fill="#AD7A2E" font-weight="700">1 ha</text>
+        <text x="150" y="158" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#AD7A2E">100m×100m</text>
+        <text x="150" y="174" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#AD7A2E">=10,000m²</text>
+
+        <rect x="70" y="70" width="30" height="30" fill="none" stroke="#B3452F" stroke-width="1.4"/>
+        <text x="112" y="80" font-family="'IBM Plex Mono'" font-size="11" fill="#B3452F" font-weight="700">1a</text>
+        <text x="112" y="92" font-family="'IBM Plex Mono'" font-size="9" fill="#B3452F">10m×10m=100m²</text>
+
+        <rect x="74" y="74" width="6" height="6" fill="#16233D"/>
+        <text x="86" y="80" font-family="'IBM Plex Mono'" font-size="9" fill="#16233D">1m²</text>
+      </svg>
+    </div>
+
+    <table>
+      <thead><tr><th>単位</th><th class="sym">記号</th><th>定義</th><th class="exp">m²換算</th></tr></thead>
+      <tbody>
+        <tr><td>平方ミリメートル</td><td class="sym">mm²</td><td>1mm×1mm</td><td class="exp">0.000001 m²</td></tr>
+        <tr><td>平方センチメートル</td><td class="sym">cm²</td><td>1cm×1cm</td><td class="exp">0.0001 m²</td></tr>
+        <tr class="core"><td>平方メートル</td><td class="sym">m²</td><td>1m×1m</td><td class="exp">1 m²</td></tr>
+        <tr><td>アール</td><td class="sym">a</td><td>10m×10m</td><td class="exp">100 m²</td></tr>
+        <tr><td>ヘクタール</td><td class="sym">ha</td><td>100m×100m（=100a）</td><td class="exp">10,000 m²</td></tr>
+        <tr class="core"><td>平方キロメートル</td><td class="sym">km²</td><td>1000m×1000m</td><td class="exp">1,000,000 m²</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout trap">
+      <span class="callout-label">典型的な間違い</span>
+      「1m=100cmだから1m²=100cm²」は<strong>誤り</strong>です。正しくは 1m²=100cm×100cm=<strong>10,000cm²</strong>。長さの変換係数は面積では必ず2乗されます（体積なら3乗）。ヘクタールも「1ha=100倍のm²」ではなく「1辺が100倍だから面積は100²=10,000倍」と考えるのが本質です。
+    </div>
+
+    <div class="tool">
+      <div class="tool-title">変換ツール ―― 面積</div>
+      <div class="tool-row">
+        <label>数値
+          <input type="number" id="areaValue" value="1" step="any">
+        </label>
+        <label>変換前の単位
+          <select id="areaFrom"></select>
+        </label>
+        <span class="arrow">→</span>
+        <label>変換後の単位
+          <select id="areaTo"></select>
+        </label>
+      </div>
+      <div class="result" id="areaResult"></div>
+    </div>
+
+    <h3>体積もついでに ―― Lとm³の関係</h3>
+    <p>体積は3乗なので、さらに感覚がずれやすい単位です。<strong>1L = 1000cm³ = 1dm³</strong>、<strong>1m³ = 1000L</strong>という2つの橋渡しだけ覚えておけば、あとは接頭辞の掛け算で導けます。</p>
+
+    <div class="callout trap">
+      <span class="callout-label">紛らわしい落とし穴：dm³ ≠ dL</span>
+      同じ「d（デシ）」でも、<strong>dL（デシリットル）</strong>は体積の単位Lに直接デシをかけたもの（1dL=0.1L）ですが、<strong>dm³（立方デシメートル）</strong>は長さの単位mに先にデシをかけて0.1mにしてから3乗したもの（1dm³=(0.1m)³=0.001m³=<strong>1L</strong>）です。3乗が挟まると、同じ接頭辞でも意味が変わります。「1dm³=0.1L」と早合点しないよう注意してください。
+    </div>
+
+    <table>
+      <thead><tr><th>単位</th><th>定義</th><th class="exp">L換算</th></tr></thead>
+      <tbody>
+        <tr><td>mL（ミリリットル）</td><td>1cm³ と同じ</td><td class="exp">0.001 L</td></tr>
+        <tr><td>dL（デシリットル）</td><td>100mL</td><td class="exp">0.1 L</td></tr>
+        <tr class="core"><td>L（リットル）</td><td>1000cm³ = 1dm³</td><td class="exp">1 L</td></tr>
+        <tr class="core"><td>m³（立方メートル）</td><td>1000L</td><td class="exp">1,000 L</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 04 -->
+  <section id="check">
+    <div class="sec-head"><span class="sec-no">04</span><h2>理解度確認 ―― 4段階、各8問</h2></div>
+    <p class="lead">レベルを上げながら、単位の扱いがどこまで身についているかを確認します。下のレベルが解けなければ、そこが今の伸びしろです。飛ばさず順番に進めてください。</p>
+
+    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.1　中学生レベル<span class="tag" style="background:var(--teal-light); color:var(--teal);">基礎の変換</span></h3>
+
+    <div class="problem"><span class="problem-num">中1-Q1</span><p class="problem-q">3kmは何mか。</p>
+      <details><summary>解答を見る</summary><div class="answer">1km=1000mなので、kmをmに直すときは<strong>1000をかける</strong>。<br>3 × 1000 = <span class="num">3000 m</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">中1-Q2</span><p class="problem-q">4500mは何kmか。</p>
+      <details><summary>解答を見る</summary><div class="answer">1km=1000mなので、mをkmに直すときは、Q1とは逆に<strong>1000で割る</strong>。<br>4500 ÷ 1000 = <span class="num">4.5 km</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">中1-Q3</span><p class="problem-q">2.5kgは何gか。</p>
+      <details><summary>解答を見る</summary><div class="answer">1kg=1000gなので、kgをgに直すときは<strong>1000をかける</strong>（kmをmに直すのと同じ考え方）。<br>2.5 × 1000 = <span class="num">2500 g</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">中1-Q4</span><p class="problem-q">750gは何kgか。</p>
+      <details><summary>解答を見る</summary><div class="answer">1kg=1000gなので、gをkgに直すときは<strong>1000で割る</strong>。<br>750 ÷ 1000 = <span class="num">0.75 kg</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">中1-Q5</span><p class="problem-q">1cm²は何mm²か。</p>
+      <details><summary>解答を見る</summary><div class="answer">面積は「長さ×長さ」でできているので、長さの変換を<strong>2回かける</strong>必要がある。<br>1cm=10mmなので、<br>1cm² = 1cm×1cm = 10mm×10mm = <span class="num">100 mm²</span><br>長さは10倍なのに、面積は10×10=100倍になっている点に注意（③の面積の罠と同じ考え方）。</div></details></div>
+
+    <div class="problem"><span class="problem-num">中1-Q6</span><p class="problem-q">2haは何m²か。</p>
+      <details><summary>解答を見る</summary><div class="answer">1ha（ヘクタール）は、1辺100mの正方形の面積。<br>1ha = 100m × 100m = 10,000 m²（③参照）<br>2ha = 2 × 10,000 = <span class="num">20,000 m²</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">中1-Q7</span><p class="problem-q">3000mLは何Lか。</p>
+      <details><summary>解答を見る</summary><div class="answer">1L=1000mLなので、mLをLに直すときは<strong>1000で割る</strong>。<br>3000 ÷ 1000 = <span class="num">3 L</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">中1-Q8</span><p class="problem-q">5aは何m²か。</p>
+      <details><summary>解答を見る</summary><div class="answer">1a（アール）は、1辺10mの正方形の面積。<br>1a = 10m × 10m = 100 m²（③参照）<br>5a = 5 × 100 = <span class="num">500 m²</span></div></details></div>
+
+    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.2　高校1年生レベル<span class="tag" style="background:var(--brass-light); color:#7A5416;">指数表記・微小接頭辞</span></h3>
+
+    <div class="problem"><span class="problem-num">高1-Q1</span><p class="problem-q">3.2×10⁴ mmはmで表すといくらか。</p>
+      <details><summary>解答を見る</summary><div class="answer"><span class="num">32 m</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">高1-Q2</span><p class="problem-q">250μmはmmで表すといくらか。</p>
+      <details><summary>解答を見る</summary><div class="answer">μは10⁻⁶、mmは10⁻³なので、250×10⁻⁶÷10⁻³=<span class="num">0.25 mm</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">高1-Q3</span><p class="problem-q">0.00045kgは何gか、また何mgか。</p>
+      <details><summary>解答を見る</summary><div class="answer"><span class="num">0.45 g = 450 mg</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">高1-Q4</span><p class="problem-q">6haは何km²か。</p>
+      <details><summary>解答を見る</summary><div class="answer">1km²=100haなので、6÷100=<span class="num">0.06 km²</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">高1-Q5</span><p class="problem-q">氷の密度0.92 g/cm³をkg/m³に変換せよ。</p>
+      <details><summary>解答を見る</summary><div class="answer">g/cm³→kg/m³は×1000なので、<span class="num">920 kg/m³</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">高1-Q6</span><p class="problem-q">1.5m³は何Lか。</p>
+      <details><summary>解答を見る</summary><div class="answer">1m³=1000Lなので、<span class="num">1500 L</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">高1-Q7</span><p class="problem-q">720hPaをPaで表せ。</p>
+      <details><summary>解答を見る</summary><div class="answer">hは10²なので、720×10²=<span class="num">72,000 Pa（7.2×10⁴ Pa）</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">高1-Q8</span><p class="problem-q">8.4×10⁵ nmはmmで表すといくらか。</p>
+      <details><summary>解答を見る</summary><div class="answer">nは10⁻⁹、mmは10⁻³なので、8.4×10⁵×10⁻⁹÷10⁻³=<span class="num">0.84 mm</span></div></details></div>
+
+    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.3　大学入試受験生レベル<span class="tag" style="background:var(--teal-light); color:var(--teal);">次元解析・物理化学</span></h3>
+
+    <div class="problem"><span class="problem-num">大入-Q1</span><p class="problem-q">圧力の単位Paを基本単位(kg, m, s)で表せ。</p>
+      <details><summary>解答を見る</summary><div class="answer">Pa=N/m²=(kg·m·s⁻²)/m²=<span class="num">kg·m⁻¹·s⁻²</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">大入-Q2</span><p class="problem-q">仕事率の単位W（ワット）を基本単位で表せ。</p>
+      <details><summary>解答を見る</summary><div class="answer">W=J/s=(kg·m²·s⁻²)/s=<span class="num">kg·m²·s⁻³</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">大入-Q3</span><p class="problem-q">光速3.00×10⁸ m/sをkm/sに変換せよ。</p>
+      <details><summary>解答を見る</summary><div class="answer"><span class="num">3.00×10⁵ km/s</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">大入-Q4</span><p class="problem-q">0.20 mol/Lの塩酸300mLを中和するには、0.10 mol/LのNaOH水溶液が何mL必要か。</p>
+      <details><summary>解答を見る</summary><div class="answer">HCl の物質量＝0.20×0.300＝0.060 mol。中和には同じ物質量のNaOHが必要なので、0.10×V＝0.060 → V＝0.60 L＝<span class="num">600 mL</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">大入-Q5</span><p class="problem-q">万有引力定数G（単位 N·m²/kg²）を基本単位で表せ。</p>
+      <details><summary>解答を見る</summary><div class="answer">N·m²/kg²=(kg·m·s⁻²)·m²/kg²=<span class="num">m³·kg⁻¹·s⁻²</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">大入-Q6</span><p class="problem-q">1eV=1.60×10⁻¹⁹ Jとして、5.0eVは何Jか。</p>
+      <details><summary>解答を見る</summary><div class="answer"><span class="num">8.0×10⁻¹⁹ J</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">大入-Q7</span><p class="problem-q">1.5Aの電流が3分間流れたときの電気量は何Cか。</p>
+      <details><summary>解答を見る</summary><div class="answer">Q=It=1.5×180=<span class="num">270 C</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">大入-Q8</span><p class="problem-q">1気圧は760mmHgと表される。760mmHgをmで表すといくらか。</p>
+      <details><summary>解答を見る</summary><div class="answer"><span class="num">0.76 m</span></div></details></div>
+
+    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.4　超絶理系トレーニーレベル<span class="tag" style="background:#F3DEDE; color:var(--red);">物理定数・極限のスケール</span></h3>
+
+    <div class="problem"><span class="problem-num">極-Q1</span><p class="problem-q">プランク定数h（単位 J·s）を基本単位で表せ。</p>
+      <details><summary>解答を見る</summary><div class="answer">J·s=(kg·m²·s⁻²)·s=<span class="num">kg·m²·s⁻¹</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">極-Q2</span><p class="problem-q">粘度の単位Pa·sを基本単位で表せ。</p>
+      <details><summary>解答を見る</summary><div class="answer">Pa·s=(kg·m⁻¹·s⁻²)·s=<span class="num">kg·m⁻¹·s⁻¹</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">極-Q3</span><p class="problem-q">ボルツマン定数k（単位 J/K）の次元を答えよ。</p>
+      <details><summary>解答を見る</summary><div class="answer">J/K=(kg·m²·s⁻²)/K=<span class="num">kg·m²·s⁻²·K⁻¹</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">極-Q4</span><p class="problem-q">磁束密度の単位T（テスラ）を基本単位で表せ。</p>
+      <details><summary>解答を見る</summary><div class="answer">T=Wb/m²=V·s/m²を分解すると、<span class="num">kg·A⁻¹·s⁻²</span></div></details></div>
+
+    <div class="problem"><span class="problem-num">極-Q5</span><p class="problem-q">1光年＝9.46×10¹⁵ mを、接頭辞ペタ（P, 10¹⁵）を使って表せ。また、ゼタ（Z, 10²¹）で表すとどうなるか。</p>
+      <details><summary>解答を見る</summary><div class="answer">ペタでは<span class="num">9.46 Pm</span>ときれいに収まる。ゼタでは9.46×10⁻⁶ Zmとなり、桁が合わず実用的ではない。「その量に合った接頭辞を選ぶ」感覚が問われる問題。</div></details></div>
+
+    <div class="problem"><span class="problem-num">極-Q6</span><p class="problem-q">アボガドロ定数の逆数（＝原子1個あたりの物質量）はおよそ何molか。</p>
+      <details><summary>解答を見る</summary><div class="answer">1÷6.02×10²³≈<span class="num">1.66×10⁻²⁴ mol</span>。ヨクト（y, 10⁻²⁴）に近いが、ぴったりとは一致しない。</div></details></div>
+
+    <div class="problem"><span class="problem-num">極-Q7</span><p class="problem-q">プランク長 l_P≈1.6×10⁻³⁵ m は、最小の接頭辞クエクト（q, 10⁻³⁰）の何分の一か。</p>
+      <details><summary>解答を見る</summary><div class="answer">1.6×10⁻³⁵ ÷ 10⁻³⁰ = 1.6×10⁻⁵。つまりクエクトよりもさらに<span class="num">約10万分の1（5桁）小さい</span>。人類が名前を付けた最小の接頭辞ですら、自然界の最小スケールには届いていない。</div></details></div>
+
+    <div class="problem"><span class="problem-num">極-Q8</span><p class="problem-q">電子ボルトをジュールに変換する係数 1.602×10⁻¹⁹ は、電気素量e[C]の数値と一致する。これは偶然か、単位の観点から1行で説明せよ。</p>
+      <details><summary>解答を見る</summary><div class="answer">偶然ではない。1eVは「電気素量eの電荷を電位差1Vで加速したときのエネルギー」と定義され、E=eVより、e[C]×1[V]=e[J]となるため、<span class="num">数値が定義上そのまま一致する</span>。</div></details></div>
+  </section>
+
+  <!-- 05 -->
+  <section id="exam">
+    <div class="sec-head"><span class="sec-no">05</span><h2>大学入試レベルの練習問題</h2></div>
+    <p class="lead">物理・化学の入試でよく出る「単位の変換が絡む」問題を集めました。解答をタップして確認してください。</p>
+
+    <div class="problem">
+      <span class="problem-num">Q1</span>
+      <p class="problem-q">可視光の波長 500 nm を m 単位で表せ。</p>
+      <details><summary>解答を見る</summary>
+        <div class="answer">nano は 10⁻⁹ なので、500 nm = 500×10⁻⁹ m = <span class="num">5.0×10⁻⁷ m</span></div>
+      </details>
+    </div>
+
+    <div class="problem">
+      <span class="problem-num">Q2</span>
+      <p class="problem-q">1気圧＝1.013×10⁵ Pa を、気象で使われる hPa（ヘクトパスカル）で表せ。</p>
+      <details><summary>解答を見る</summary>
+        <div class="answer">hecto は 10² なので、10⁵ Pa ÷ 10² = 10³。よって 1.013×10⁵ Pa = <span class="num">1013 hPa</span></div>
+      </details>
+    </div>
+
+    <div class="problem">
+      <span class="problem-num">Q3</span>
+      <p class="problem-q">密度 1.0 g/cm³ の物質は、何 kg/m³ か。（この換算は入試の頻出トラップです）</p>
+      <details><summary>解答を見る</summary>
+        <div class="answer">g→kgは÷1000、cm³→m³は÷1,000,000（=÷100³）。よって g/cm³→kg/m³ は ÷1000÷(1/1,000,000)=×1000 となり、1.0 g/cm³ = <span class="num">1000 kg/m³</span>（水の密度の例）</div>
+      </details>
+    </div>
+
+    <div class="problem">
+      <span class="problem-num">Q4</span>
+      <p class="problem-q">力の単位 N（ニュートン）を、MKSの基本単位（kg, m, s）だけで表せ。</p>
+      <details><summary>解答を見る</summary>
+        <div class="answer">運動方程式 F=ma より、N = kg×(m/s²) = <span class="num">kg・m・s⁻²</span></div>
+      </details>
+    </div>
+
+    <div class="problem">
+      <span class="problem-num">Q5</span>
+      <p class="problem-q">0.50 mol/L の水溶液 200 mL 中に溶けている物質量は何molか。</p>
+      <details><summary>解答を見る</summary>
+        <div class="answer">200 mL = 0.200 L（ミリ=10⁻³なので÷1000）。物質量 = 0.50 mol/L × 0.200 L = <span class="num">0.10 mol</span></div>
+      </details>
+    </div>
+
+    <div class="problem">
+      <span class="problem-num">Q6</span>
+      <p class="problem-q">アボガドロ定数 6.02×10²³ /mol は、どの接頭辞にもぴったり当てはまらない。それはなぜか。</p>
+      <details><summary>解答を見る</summary>
+        <div class="answer">SI接頭辞は3の倍数の指数（…,10²¹=Z, 10²⁴=Y,…）で並んでいるため、10²³はゼタ(10²¹)とヨタ(10²⁴)の中間にあたり、対応する接頭辞が存在しません。すべての物理量が接頭辞できれいに割り切れるとは限らない、という良い例です。</div>
+      </details>
+    </div>
+
+    <div class="problem">
+      <span class="problem-num">Q7</span>
+      <p class="problem-q">3.0 ha の土地は何 m² か。また何 km² か。</p>
+      <details><summary>解答を見る</summary>
+        <div class="answer">1 ha = 10,000 m² なので、3.0 ha = <span class="num">30,000 m²</span>。1 km² = 1,000,000 m² なので、30,000 ÷ 1,000,000 = <span class="num">0.03 km²</span></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section id="mnemonic">
+    <div class="sec-head"><span class="sec-no">06</span><h2>受験生のための、丸暗記ではない整理術</h2></div>
+    <ol style="padding-left:20px; color:var(--ink-soft); font-size:15px;">
+      <li style="margin-bottom:10px;"><strong>まず「1000倍ごと」の柱を覚える</strong> ―― k, M, G, T…（大きい方）と m, μ, n, p…（小さい方）。これが9割の場面をカバーします。</li>
+      <li style="margin-bottom:10px;"><strong>h・da・d・c は「用途とセットで」覚える</strong> ―― ha（土地）、dL（飲み物の量）、hPa（天気予報）、cm（身長）。ルールではなく実例で記憶する方が長持ちします。</li>
+      <li style="margin-bottom:10px;"><strong>面積・体積は「次元」を意識する</strong> ―― 長さが10倍なら、面積は10²=100倍、体積は10³=1000倍。結果を暗記するより、なぜ2乗・3乗になるかのプロセスを毎回自分の手で確認する方が、初見の応用問題に対応できる力になります。</li>
+      <li><strong>入試レベルは「次元解析で検算する」</strong> ―― 公式を忘れても、N=kg·m/s²のように単位を分解できれば、式の形が正しいかその場で確認できます。</li>
+    </ol>
+  </section>
+
+  <!-- 07 -->
+  <section id="author">
+    <div class="sec-head"><span class="sec-no">07</span><h2>筆者紹介</h2></div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:28px 26px; box-shadow:0 1px 0 var(--line); display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap;">
+      <div style="width:60px;height:60px;border-radius:50%;background:var(--ink);color:var(--brass-light);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-weight:600;font-size:20px;flex-shrink:0;">獣</div>
+      <div style="flex:1; min-width:240px;">
+        <p style="margin:0 0 6px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; color:var(--brass); text-transform:uppercase; font-weight:600;">Profile</p>
+        <p style="margin:0; font-size:14.5px; color:var(--ink-soft); line-height:1.8;">40代男性。浪人時代、1年間でセンター試験の自己採点を580点→710点（800点満点）まで伸ばし、偏差値を15上げて某国公立大学獣医学部に合格。獣医師国家資格を取得したものの、血を見るのが苦手なことに気づき、獣医師の道は一旦保留に。現在は社会福祉法人で管理職として働くかたわら、DIY不動産投資と生成AIを軸にした副業に取り組んでいる。社会人になっても「頭脳開発ゲーム」は終わらないと実感する日々から、このブログとSNSでの発信を始めた。ちなみに、コンビニでの買い食いを妻子に気づかれないための小遣いの柱を確立すべく、今日も汗をかいている。</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>UNIT REFERENCE ― MKS / SI PREFIXES ― 作成日 2026.07.19</footer>
+
+<script>
+// ---------- data ----------
+const PREFIXES = [
+  {sym:'Q', name:'クエタ', exp:30},
+  {sym:'R', name:'ロナ', exp:27},
+  {sym:'Y', name:'ヨタ', exp:24},
+  {sym:'Z', name:'ゼタ', exp:21},
+  {sym:'E', name:'エクサ', exp:18},
+  {sym:'P', name:'ペタ', exp:15},
+  {sym:'T', name:'テラ', exp:12},
+  {sym:'G', name:'ギガ', exp:9},
+  {sym:'M', name:'メガ', exp:6},
+  {sym:'k', name:'キロ', exp:3},
+  {sym:'h', name:'ヘクト', exp:2},
+  {sym:'da', name:'デカ', exp:1},
+  {sym:'(基本)', name:'基本単位', exp:0},
+  {sym:'d', name:'デシ', exp:-1},
+  {sym:'c', name:'センチ', exp:-2},
+  {sym:'m', name:'ミリ', exp:-3},
+  {sym:'μ', name:'マイクロ', exp:-6},
+  {sym:'n', name:'ナノ', exp:-9},
+  {sym:'p', name:'ピコ', exp:-12},
+  {sym:'f', name:'フェムト', exp:-15},
+  {sym:'a', name:'アト', exp:-18},
+  {sym:'z', name:'ゼプト', exp:-21},
+  {sym:'y', name:'ヨクト', exp:-24},
+  {sym:'r', name:'ロント', exp:-27},
+  {sym:'q', name:'クエクト', exp:-30},
+];
+
+const AREA_UNITS = [
+  {label:'mm²', factor:1e-6},
+  {label:'cm²', factor:1e-4},
+  {label:'m²', factor:1},
+  {label:'a（アール）', factor:100},
+  {label:'ha（ヘクタール）', factor:10000},
+  {label:'km²', factor:1000000},
+];
+
+function fmt(n){
+  if(!isFinite(n)) return '―';
+  if(Math.abs(n) !== 0 && (Math.abs(n) >= 1e9 || Math.abs(n) < 1e-6)){
+    return n.toExponential(4).replace('e+','×10^').replace('e-','×10^-');
+  }
+  return parseFloat(n.toPrecision(10)).toString();
+}
+
+// ---------- prefix converter ----------
+const pfxFrom = document.getElementById('pfxFrom');
+const pfxTo = document.getElementById('pfxTo');
+const pfxValue = document.getElementById('pfxValue');
+const pfxResult = document.getElementById('pfxResult');
+
+PREFIXES.forEach((p, i) => {
+  const label = `${p.sym}（${p.name}, 10^${p.exp}）`;
+  pfxFrom.appendChild(new Option(label, i));
+  pfxTo.appendChild(new Option(label, i));
+});
+pfxFrom.value = 9; // k
+pfxTo.value = 15;  // m
+
+function updatePfx(){
+  const from = PREFIXES[pfxFrom.value];
+  const to = PREFIXES[pfxTo.value];
+  const v = parseFloat(pfxValue.value) || 0;
+  const result = v * Math.pow(10, from.exp - to.exp);
+  pfxResult.innerHTML = `${fmt(v)} ${from.sym==='(基本)'?'':from.sym}<span class="eq">=</span>${fmt(result)} ${to.sym==='(基本)'?'':to.sym}`;
+}
+[pfxFrom, pfxTo, pfxValue].forEach(el => el.addEventListener('input', updatePfx));
+updatePfx();
+
+// ---------- area converter ----------
+const areaFrom = document.getElementById('areaFrom');
+const areaTo = document.getElementById('areaTo');
+const areaValue = document.getElementById('areaValue');
+const areaResult = document.getElementById('areaResult');
+
+AREA_UNITS.forEach((u, i) => {
+  areaFrom.appendChild(new Option(u.label, i));
+  areaTo.appendChild(new Option(u.label, i));
+});
+areaFrom.value = 2; // m2
+areaTo.value = 3;   // a
+
+function updateArea(){
+  const from = AREA_UNITS[areaFrom.value];
+  const to = AREA_UNITS[areaTo.value];
+  const v = parseFloat(areaValue.value) || 0;
+  const result = v * from.factor / to.factor;
+  areaResult.innerHTML = `${fmt(v)} ${from.label}<span class="eq">=</span>${fmt(result)} ${to.label}`;
+}
+[areaFrom, areaTo, areaValue].forEach(el => el.addEventListener('input', updateArea));
+updateArea();
+
+// ---------- hero ruler ----------
+(function(){
+  const svg = document.getElementById('rulerSvg');
+  const majors = PREFIXES.filter(p => p.exp % 3 === 0); // every power-of-3 step
+  const w = 872, marginX = 40, y = 90;
+  const n = majors.length;
+  const step = (w - marginX*2) / (n-1);
+
+  let svgContent = `<line x1="${marginX}" y1="${y}" x2="${w-marginX}" y2="${y}" class="tick-line major"/>`;
+  majors.forEach((p, i) => {
+    const x = marginX + step*i;
+    const isBase = p.exp === 0;
+    svgContent += `<line x1="${x}" y1="${y-10}" x2="${x}" y2="${y+10}" class="tick-line major"/>`;
+    svgContent += `<circle cx="${x}" cy="${y}" r="${isBase?4.5:2.5}" class="${isBase?'base-marker':''}" fill="${isBase?'#F2E4CB':'#7B8CB4'}"/>`;
+    svgContent += `<text x="${x}" y="${y-18}" text-anchor="middle" class="tick-label" font-weight="${isBase?700:400}">${p.sym==='(基本)'?'基本':p.sym}</text>`;
+    svgContent += `<text x="${x}" y="${y+28}" text-anchor="middle" class="tick-exp">10${p.exp>=0?'':''}${superscript(p.exp)}</text>`;
+  });
+
+  // zoom callout box around base unit region (k..m, indices around center)
+  const baseIndex = majors.findIndex(p => p.exp === 0);
+  const zx1 = marginX + step*(baseIndex-1) - step*0.35;
+  const zx2 = marginX + step*(baseIndex+1) + step*0.35;
+  svgContent += `<rect x="${zx1}" y="${y-30}" width="${zx2-zx1}" height="60" class="zoom-box" rx="6"/>`;
+  svgContent += `<text x="${(zx1+zx2)/2}" y="${y+55}" text-anchor="middle" class="tick-exp" fill="#F2E4CB" font-size="10">h・da・d・c はこの内側 ―― ②で拡大</text>`;
+
+  svg.innerHTML = svgContent;
+
+  function superscript(n){
+    const map = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+    return String(n).split('').map(c => map[c] || c).join('');
+  }
+})();
+</script>
+
+</body>
+</html>
