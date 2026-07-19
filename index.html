@@ -272,11 +272,11 @@
     <p class="eyebrow">Unit Systems &amp; SI Prefixes ― 極みを目指す受験生のための学習リファレンス</p>
     <h1 class="title">単位でいつも<br>立ち止まる自分へ。</h1>
     <p class="subtitle">あなたも、実はほとんどのライバルがわかっていない、単位系と接頭辞の関係。この武器をインストールし、圧倒的な自信に変えて、受験という名の頭脳開発ゲームをクリアしよう。</p>
-    <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:var(--brass-light); background:rgba(255,255,255,0.06); display:inline-block; padding:6px 14px; border-radius:20px; border:1px solid rgba(242,228,203,0.3); margin:0 0 32px;">筆者：偏差値+15 ／ 某国公立大学 獣医学部</p>
+    <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:var(--brass-light); background:rgba(255,255,255,0.06); display:inline-block; padding:6px 14px; border-radius:20px; border:1px solid rgba(242,228,203,0.3); margin:0 0 32px;">ライター：浪人1年間で偏差値+15 ／ 某国公立大学 獣医学部</p>
 
     <div class="ruler-wrap">
       <svg viewBox="0 0 872 190" width="100%" id="rulerSvg"></svg>
-      <p class="ruler-caption">▲ 10³ ごとに並ぶ「主要な接頭辞」。中央の点線枠が、混乱しやすい h・da・d・c のゾーン ―― 下の②で拡大します。</p>
+      <p class="ruler-caption">▲ ナノ(n)〜テラ(T)、日常から理系の学びで実際によく出会う範囲を象徴的に表示。中央の点線枠が、混乱しやすい h・da・d・c のゾーン ―― 下の②で拡大します。</p>
     </div>
   </div>
 </header>
@@ -665,7 +665,7 @@
 
   <!-- 07 -->
   <section id="author">
-    <div class="sec-head"><span class="sec-no">07</span><h2>筆者紹介</h2></div>
+    <div class="sec-head"><span class="sec-no">07</span><h2>ライター紹介</h2></div>
     <div style="background:var(--white); border-radius:var(--radius); padding:28px 26px; box-shadow:0 1px 0 var(--line); display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap;">
       <div style="width:60px;height:60px;border-radius:50%;background:var(--ink);color:var(--brass-light);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-weight:600;font-size:20px;flex-shrink:0;">獣</div>
       <div style="flex:1; min-width:240px;">
@@ -776,7 +776,7 @@ updateArea();
 // ---------- hero ruler ----------
 (function(){
   const svg = document.getElementById('rulerSvg');
-  const majors = PREFIXES.filter(p => p.exp % 3 === 0); // every power-of-3 step
+  const majors = PREFIXES.filter(p => p.exp % 3 === 0 && p.exp >= -9 && p.exp <= 12); // nano〜tera だけを象徴的に表示
   const w = 872, marginX = 40, y = 90;
   const n = majors.length;
   const step = (w - marginX*2) / (n-1);
