@@ -23,22 +23,22 @@
   })(window, document, "clarity", "script", "xoroqy5uh4");
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#EEF1F5;
-    --paper-2:#E4E9F0;
+    --paper:#F5F5F2;
+    --paper-2:#EAEAE6;
     --white:#FFFFFF;
-    --ink:#16233D;
-    --ink-soft:#4A5772;
-    --ink-faint:#8592A8;
-    --brass:#AD7A2E;
-    --brass-light:#F2E4CB;
-    --teal:#1F6F78;
-    --teal-light:#DCEEEF;
-    --line:#C7D0DC;
-    --red:#B3452F;
-    --radius:10px;
+    --ink:#121214;
+    --ink-soft:#48484E;
+    --ink-faint:#8C8C92;
+    --brass:#0039A6;
+    --brass-light:#FFD100;
+    --teal:#00933C;
+    --teal-light:#E3F3E7;
+    --line:#D9D9D5;
+    --red:#EE352E;
+    --radius:4px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -56,7 +56,7 @@
   /* ---------- header / hero ---------- */
   header.hero{
     background:
-      linear-gradient(180deg, var(--ink) 0%, #1c2c4d 100%);
+      linear-gradient(180deg, #0A0A0B 0%, #18181A 100%);
     color:var(--paper);
     padding:64px 24px 48px;
     position:relative;
@@ -79,14 +79,15 @@
     margin:0 0 14px;
   }
   h1.title{
-    font-family:'IBM Plex Serif', serif;
-    font-weight:600;
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-weight:900;
+    letter-spacing:-.01em;
     font-size:clamp(28px, 4.4vw, 42px);
     line-height:1.3;
     margin:0 0 14px;
   }
   .subtitle{
-    color:#C4CEE0;
+    color:#C9C9CE;
     font-size:15.5px;
     max-width:600px;
     margin:0 0 40px;
@@ -97,15 +98,15 @@
   .ruler-caption{
     font-family:'IBM Plex Mono',monospace;
     font-size:11.5px;
-    color:#8FA0C2;
+    color:#9A9AA0;
     margin-top:10px;
     letter-spacing:.02em;
   }
   svg text{font-family:'IBM Plex Mono',monospace;}
-  .tick-label{fill:#C4CEE0; font-size:11px;}
-  .tick-exp{fill:#7C8CAE; font-size:9.5px;}
-  .tick-line{stroke:#4C5C82; stroke-width:1;}
-  .tick-line.major{stroke:#7B8CB4; stroke-width:1.4;}
+  .tick-label{fill:#E8E8EA; font-size:19px; font-weight:600;}
+  .tick-exp{fill:#9A9AA0; font-size:17px;}
+  .tick-line{stroke:#3A3A3E; stroke-width:1;}
+  .tick-line.major{stroke:#5A5A60; stroke-width:1.4;}
   .base-marker{fill:var(--brass-light);}
   .zoom-box{fill:none; stroke:var(--brass-light); stroke-width:1; stroke-dasharray:3 3;}
   .zoom-link{stroke:var(--brass-light); stroke-width:1; stroke-dasharray:2 2; opacity:.6;}
@@ -118,21 +119,21 @@
     font-family:'IBM Plex Mono',monospace;
     color:var(--brass);
     font-size:14px;
-    font-weight:600;
+    font-weight:700;
     letter-spacing:.05em;
   }
   h2{
-    font-family:'IBM Plex Serif', serif;
-    font-weight:600;
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-weight:900;
     font-size:24px;
     margin:0;
     color:var(--ink);
   }
   .lead{color:var(--ink-soft); font-size:15px; max-width:640px; margin:14px 0 28px;}
   h3{
-    font-family:'IBM Plex Serif', serif;
+    font-family:'Zen Kaku Gothic New', sans-serif;
     font-size:17px;
-    font-weight:600;
+    font-weight:700;
     margin:32px 0 12px;
   }
   p{margin:0 0 14px; font-size:15px; color:var(--ink-soft);}
@@ -180,8 +181,8 @@
   tr.rare td{color:var(--ink-faint);}
   .tag{
     display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px;
-    padding:2px 6px; border-radius:4px; background:var(--brass-light); color:#7A5416;
-    margin-left:6px; letter-spacing:.03em;
+    padding:2px 6px; border-radius:4px; background:var(--brass-light); color:var(--ink);
+    margin-left:6px; letter-spacing:.03em; font-weight:600;
   }
 
   /* nested squares diagram */
@@ -272,7 +273,7 @@
     <p class="eyebrow">Unit Systems &amp; SI Prefixes ― 極みを目指す受験生のための学習リファレンス</p>
     <h1 class="title">単位でいつも<br>立ち止まる自分へ。</h1>
     <p class="subtitle">あなたも、実はほとんどのライバルがわかっていない、単位系と接頭辞の関係。この武器をインストールし、圧倒的な自信に変えて、受験という名の頭脳開発ゲームをクリアしよう。</p>
-    <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:var(--brass-light); background:rgba(255,255,255,0.06); display:inline-block; padding:6px 14px; border-radius:20px; border:1px solid rgba(242,228,203,0.3); margin:0 0 32px;">ライター：浪人1年間で偏差値+15 ／ 某国公立大学 獣医学部</p>
+    <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:var(--brass-light); background:rgba(255,255,255,0.06); display:inline-block; padding:6px 14px; border-radius:20px; border:1px solid rgba(255,209,0,0.35); margin:0 0 32px;">ライター：浪人1年間で偏差値+15 ／ 某国公立大学 獣医学部</p>
 
     <div class="ruler-wrap">
       <svg viewBox="0 0 872 190" width="100%" id="rulerSvg"></svg>
@@ -329,19 +330,19 @@
     <div class="area-diagram">
       <svg viewBox="0 0 760 150" width="100%" style="max-width:640px">
         <!-- zoom ruler for k..m segment -->
-        <text x="380" y="18" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="11" fill="#8592A8">k と m の間だけ、10倍刻みの目盛りが4本ある</text>
+        <text x="380" y="18" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="11" fill="#8C8C92">k と m の間だけ、10倍刻みの目盛りが4本ある</text>
         <line x1="40" y1="70" x2="720" y2="70" stroke="#C7D0DC" stroke-width="2"/>
         <!-- ticks: k h da (base) d c m -->
         <g font-family="'IBM Plex Mono'" font-size="12" text-anchor="middle">
-          <circle cx="60" cy="70" r="4" fill="#16233D"/><text x="60" y="55" fill="#16233D" font-weight="600">k</text><text x="60" y="95" fill="#AD7A2E">10³</text>
-          <circle cx="215" cy="70" r="4" fill="#B3452F"/><text x="215" y="55" fill="#B3452F" font-weight="700">h</text><text x="215" y="95" fill="#B3452F">10²</text>
-          <circle cx="370" cy="70" r="4" fill="#B3452F"/><text x="370" y="55" fill="#B3452F" font-weight="700">da</text><text x="370" y="95" fill="#B3452F">10¹</text>
-          <circle cx="490" cy="70" r="5" fill="#1F6F78"/><text x="490" y="55" fill="#1F6F78" font-weight="700">基本単位</text><text x="490" y="95" fill="#1F6F78">10⁰</text>
-          <circle cx="560" cy="70" r="4" fill="#B3452F"/><text x="560" y="55" fill="#B3452F" font-weight="700">d</text><text x="560" y="95" fill="#B3452F">10⁻¹</text>
-          <circle cx="640" cy="70" r="4" fill="#B3452F"/><text x="640" y="55" fill="#B3452F" font-weight="700">c</text><text x="640" y="95" fill="#B3452F">10⁻²</text>
-          <circle cx="705" cy="70" r="4" fill="#16233D"/><text x="705" y="55" fill="#16233D" font-weight="600">m</text><text x="705" y="95" fill="#AD7A2E">10⁻³</text>
+          <circle cx="60" cy="70" r="4" fill="#121214"/><text x="60" y="55" fill="#121214" font-weight="600">k</text><text x="60" y="95" fill="#0039A6">10³</text>
+          <circle cx="215" cy="70" r="4" fill="#EE352E"/><text x="215" y="55" fill="#EE352E" font-weight="700">h</text><text x="215" y="95" fill="#EE352E">10²</text>
+          <circle cx="370" cy="70" r="4" fill="#EE352E"/><text x="370" y="55" fill="#EE352E" font-weight="700">da</text><text x="370" y="95" fill="#EE352E">10¹</text>
+          <circle cx="490" cy="70" r="5" fill="#00933C"/><text x="490" y="55" fill="#00933C" font-weight="700">基本単位</text><text x="490" y="95" fill="#00933C">10⁰</text>
+          <circle cx="560" cy="70" r="4" fill="#EE352E"/><text x="560" y="55" fill="#EE352E" font-weight="700">d</text><text x="560" y="95" fill="#EE352E">10⁻¹</text>
+          <circle cx="640" cy="70" r="4" fill="#EE352E"/><text x="640" y="55" fill="#EE352E" font-weight="700">c</text><text x="640" y="95" fill="#EE352E">10⁻²</text>
+          <circle cx="705" cy="70" r="4" fill="#121214"/><text x="705" y="55" fill="#121214" font-weight="600">m</text><text x="705" y="95" fill="#0039A6">10⁻³</text>
         </g>
-        <text x="380" y="135" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="11" fill="#8592A8">h・da・d・c（赤）＝面積・体積・気圧など、特定の用途だけに残った目盛り</text>
+        <text x="380" y="135" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="11" fill="#8C8C92">h・da・d・c（赤）＝面積・体積・気圧など、特定の用途だけに残った目盛り</text>
       </svg>
     </div>
 
@@ -409,21 +410,21 @@
 
     <div class="area-diagram">
       <svg viewBox="0 0 700 260" width="100%" style="max-width:520px">
-        <rect x="40" y="40" width="620" height="200" fill="none" stroke="#1F6F78" stroke-width="2"/>
-        <text x="350" y="30" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="12" fill="#1F6F78" font-weight="600">1 km² = 100 ha = 10,000 a = 1,000,000 m²</text>
-        <text x="350" y="255" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#8592A8">正方形は面積比のイメージ（縮尺は誇張しています）</text>
+        <rect x="40" y="40" width="620" height="200" fill="none" stroke="#00933C" stroke-width="2"/>
+        <text x="350" y="30" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="12" fill="#00933C" font-weight="600">1 km² = 100 ha = 10,000 a = 1,000,000 m²</text>
+        <text x="350" y="255" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#8C8C92">正方形は面積比のイメージ（縮尺は誇張しています）</text>
 
-        <rect x="60" y="60" width="180" height="160" fill="none" stroke="#AD7A2E" stroke-width="1.6"/>
-        <text x="150" y="140" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="13" fill="#AD7A2E" font-weight="700">1 ha</text>
-        <text x="150" y="158" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#AD7A2E">100m×100m</text>
-        <text x="150" y="174" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#AD7A2E">=10,000m²</text>
+        <rect x="60" y="60" width="180" height="160" fill="none" stroke="#0039A6" stroke-width="1.6"/>
+        <text x="150" y="140" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="13" fill="#0039A6" font-weight="700">1 ha</text>
+        <text x="150" y="158" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#0039A6">100m×100m</text>
+        <text x="150" y="174" text-anchor="middle" font-family="'IBM Plex Mono'" font-size="10" fill="#0039A6">=10,000m²</text>
 
-        <rect x="70" y="70" width="30" height="30" fill="none" stroke="#B3452F" stroke-width="1.4"/>
-        <text x="112" y="80" font-family="'IBM Plex Mono'" font-size="11" fill="#B3452F" font-weight="700">1a</text>
-        <text x="112" y="92" font-family="'IBM Plex Mono'" font-size="9" fill="#B3452F">10m×10m=100m²</text>
+        <rect x="70" y="70" width="30" height="30" fill="none" stroke="#EE352E" stroke-width="1.4"/>
+        <text x="112" y="80" font-family="'IBM Plex Mono'" font-size="11" fill="#EE352E" font-weight="700">1a</text>
+        <text x="112" y="92" font-family="'IBM Plex Mono'" font-size="9" fill="#EE352E">10m×10m=100m²</text>
 
-        <rect x="74" y="74" width="6" height="6" fill="#16233D"/>
-        <text x="86" y="80" font-family="'IBM Plex Mono'" font-size="9" fill="#16233D">1m²</text>
+        <rect x="74" y="74" width="6" height="6" fill="#121214"/>
+        <text x="86" y="80" font-family="'IBM Plex Mono'" font-size="9" fill="#121214">1m²</text>
       </svg>
     </div>
 
@@ -511,7 +512,7 @@
     <div class="problem"><span class="problem-num">中1-Q8</span><p class="problem-q">5aは何m²か。</p>
       <details><summary>解答を見る</summary><div class="answer">1a（アール）は、1辺10mの正方形の面積。<br>1a = 10m × 10m = 100 m²（③参照）<br>5a = 5 × 100 = <span class="num">500 m²</span></div></details></div>
 
-    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.2　高校1年生レベル<span class="tag" style="background:var(--brass-light); color:#7A5416;">指数表記・微小接頭辞</span></h3>
+    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.2　高校1年生レベル<span class="tag" style="background:var(--brass-light); color:var(--ink);">指数表記・微小接頭辞</span></h3>
 
     <div class="problem"><span class="problem-num">高1-Q1</span><p class="problem-q">3.2×10⁴ mmはmで表すといくらか。</p>
       <details><summary>解答を見る</summary><div class="answer"><span class="num">32 m</span></div></details></div>
@@ -537,7 +538,7 @@
     <div class="problem"><span class="problem-num">高1-Q8</span><p class="problem-q">8.4×10⁵ nmはmmで表すといくらか。</p>
       <details><summary>解答を見る</summary><div class="answer">nは10⁻⁹、mmは10⁻³なので、8.4×10⁵×10⁻⁹÷10⁻³=<span class="num">0.84 mm</span></div></details></div>
 
-    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.3　大学入試受験生レベル<span class="tag" style="background:var(--teal-light); color:var(--teal);">次元解析・物理化学</span></h3>
+    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.3　大学入試受験生レベル<span class="tag" style="background:rgba(0,57,166,0.12); color:var(--brass);">次元解析・物理化学</span></h3>
 
     <div class="problem"><span class="problem-num">大入-Q1</span><p class="problem-q">圧力の単位Paを基本単位(kg, m, s)で表せ。</p>
       <details><summary>解答を見る</summary><div class="answer">Pa=N/m²=(kg·m·s⁻²)/m²=<span class="num">kg·m⁻¹·s⁻²</span></div></details></div>
@@ -563,7 +564,7 @@
     <div class="problem"><span class="problem-num">大入-Q8</span><p class="problem-q">1気圧は760mmHgと表される。760mmHgをmで表すといくらか。</p>
       <details><summary>解答を見る</summary><div class="answer"><span class="num">0.76 m</span></div></details></div>
 
-    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.4　超絶理系トレーニーレベル<span class="tag" style="background:#F3DEDE; color:var(--red);">物理定数・極限のスケール</span></h3>
+    <h3 style="margin-top:36px; display:flex; align-items:center; gap:10px;">Lv.4　超絶理系トレーニーレベル<span class="tag" style="background:rgba(238,53,46,0.12); color:var(--red);">物理定数・極限のスケール</span></h3>
 
     <div class="problem"><span class="problem-num">極-Q1</span><p class="problem-q">プランク定数h（単位 J·s）を基本単位で表せ。</p>
       <details><summary>解答を見る</summary><div class="answer">J·s=(kg·m²·s⁻²)·s=<span class="num">kg·m²·s⁻¹</span></div></details></div>
@@ -786,7 +787,7 @@ updateArea();
     const x = marginX + step*i;
     const isBase = p.exp === 0;
     svgContent += `<line x1="${x}" y1="${y-10}" x2="${x}" y2="${y+10}" class="tick-line major"/>`;
-    svgContent += `<circle cx="${x}" cy="${y}" r="${isBase?4.5:2.5}" class="${isBase?'base-marker':''}" fill="${isBase?'#F2E4CB':'#7B8CB4'}"/>`;
+    svgContent += `<circle cx="${x}" cy="${y}" r="${isBase?5.5:3}" class="${isBase?'base-marker':''}" fill="${isBase?'#FFD100':'#8A8A92'}"/>`;
     svgContent += `<text x="${x}" y="${y-18}" text-anchor="middle" class="tick-label" font-weight="${isBase?700:400}">${p.sym==='(基本)'?'基本':p.sym}</text>`;
     svgContent += `<text x="${x}" y="${y+28}" text-anchor="middle" class="tick-exp">10${p.exp>=0?'':''}${superscript(p.exp)}</text>`;
   });
@@ -796,7 +797,7 @@ updateArea();
   const zx1 = marginX + step*(baseIndex-1) - step*0.35;
   const zx2 = marginX + step*(baseIndex+1) + step*0.35;
   svgContent += `<rect x="${zx1}" y="${y-30}" width="${zx2-zx1}" height="60" class="zoom-box" rx="6"/>`;
-  svgContent += `<text x="${(zx1+zx2)/2}" y="${y+55}" text-anchor="middle" class="tick-exp" fill="#F2E4CB" font-size="10">h・da・d・c はこの内側 ―― ②で拡大</text>`;
+  svgContent += `<text x="${(zx1+zx2)/2}" y="${y+55}" text-anchor="middle" class="tick-exp" fill="#FFD100" font-size="12">h・da・d・c はこの内側 ―― ②で拡大</text>`;
 
   svg.innerHTML = svgContent;
 
